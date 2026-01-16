@@ -1,14 +1,16 @@
-name: Build and deploy to GitHub Pages
+name: Deploy to GitHub Pages
+
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Setup Node.js
@@ -29,3 +31,6 @@ jobs:
           github_token: ${{ secrets.GH_PAT }}
           publish_dir: ./dist
           keep_files: false
+          user_name: knopa-boom2
+          user_email: knopa-boom2@users.noreply.github.com
+          commit_message: "Deploy from GitHub Actions: ${{ github.sha }}"
