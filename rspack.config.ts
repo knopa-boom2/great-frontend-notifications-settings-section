@@ -12,7 +12,7 @@ export default defineConfig({
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[contenthash].js',
-    publicPath: "./",
+    publicPath: '/great-frontend-notifications-settings-section/',
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
